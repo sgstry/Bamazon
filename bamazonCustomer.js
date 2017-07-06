@@ -55,7 +55,7 @@ function checkAvailability(id, units) {
   			console.log("Insufficient quantity!"+ "\n");
   			process.exit();
   		} else {
-  			console.log("Total cost: " + (parseFloat(res[0].price) * requestedUnits).toFixed(2) + "\n");
+  			console.log("Total cost: $" + (parseFloat(res[0].price) * requestedUnits).toFixed(2) + "\n");
 
   			connection.query("UPDATE products SET ? WHERE ?", [{stock_quantity: (unitsAvailable - requestedUnits)}, {item_id: id}], function(err, res) {
   				if (err) throw err;
